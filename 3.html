@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>兄弟连年会----三等奖</title>
+</head>
+<body>
+<link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    a, img {
+        border: 0;
+        text-decoration: none;
+    }
+
+    body {
+        font: 12px/180% Arial;
+        background: #333;
+    }
+
+    .brand a {
+        display: block;
+        float: left;
+        margin: 20px;
+        width: 180px;
+        height: 240px;
+        text-align: center;
+        position: relative;
+    }
+
+    .brand img {
+        width: 180px;
+        height: 240px;
+    }
+
+    .brand .info {
+        background-color: #f0f0f0;
+        color: #369242;
+        line-height: 240px;
+    }
+
+    .vertical .info {
+        height: 240px;
+        margin: 0 auto;
+    }
+
+    .horizontal img {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .horizontal .info {
+        width: 180px;
+        height: 0;
+        top: 120px;
+        position: absolute;
+        left: 0;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    #vertical img {
+        display: none;
+    }
+
+    .centent {
+        width: 660px;
+        margin: 0 auto;
+    }
+</style>
+
+<div style="width:660px;margin:0 auto;">
+
+    <div id="vertical" class="brand vertical">
+        <a class="a1" href="#"><img style="display: none;" alt="" src=''/>
+            <div class="info">三等奖</div>
+        </a>
+        <a class="a2" href="#"><img lta="" src=''/>
+            <div class="info">三等奖</div>
+        </a>
+        <a class="a3" href="#"><img alt="" src=''/>
+            <div class="info">三等奖</div>
+        </a>
+    </div>
+
+    <div class="clear"></div>
+</div>
+<div class="centent">
+    <button class="start btn btn-success">抽奖</button>
+    <a class="start btn btn-danger" href="2.html">二等奖</a>
+</div>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    var names = ['张三','李四','王五'];
+    var name = '';
+    $('.start').click(function () {
+        //取翻转秒数5-10秒
+        var stime = ran(5, 8) * 1000;
+        var timer1 = null, timer2 = null, timer3 = null;
+        var timerstop = null;
+        timer1 = setInterval(function () {
+            name = names[ran(0, names.length - 1)];
+            $('.a1 img').attr('src', './images/' + name + '.jpg');
+            $('.a1 img').stop().animate({'width': 0}, 100, function () {
+                $('.a1 img').show().next().hide();
+                $('.a1 img').animate({'width': '180px'}, 100);
+            });
+            //翻转第一张牌
+            name = names[ran(0, names.length - 1)];
+            $('.a2 img').attr('src', './images/' + name + '.jpg');
+            $('.a2 img').stop().animate({'width': 0}, 100, function () {
+                $('.a2 img').show().next().hide();
+                $('.a2 img').animate({'width': '180px'}, 100);
+            });
+            //翻转第二张牌
+            name = names[ran(0, names.length - 1)];
+            $('.a3 img').attr('src', './images/' + name + '.jpg');
+            $('.a3 img').stop().animate({'width': 0}, 100, function () {
+                $('.a3 img').show().next().hide();
+                $('.a3 img').animate({'width': '180px'}, 100);
+            });
+            //翻转第三张牌
+        }, 200);
+        timerstop = setTimeout(function () {
+            clearInterval(timer1);
+            timer1 = null;
+            clearInterval(timer2);
+            timer2 = null;
+            clearInterval(timer3);
+            timer3 = null;
+            return false;
+        }, stime);
+    });
+    function ran(min, max) {
+        return parseInt(Math.random() * (max - min + 1) + min)
+    }
+</script>
+</body>
+</html>
