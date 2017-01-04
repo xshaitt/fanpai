@@ -55,36 +55,43 @@ input {
 .clear {
     clear: both;
 }
-ul li img{
-    width:120px;
-    height:120px;
+
+ul li img {
+    width: 120px;
+    height: 120px;
 }
+
 .centent {
     width: 660px;
     margin: 0 auto;
 }
-.bj{
+
+.bj {
     width: 0;
-    margin:0px auto;
+    margin: 0px auto;
     display: none;
 }
-.border1{
-     position: absolute;
-     left: 22px;
-     top: 5px;
-     width: 120px;
-     height: 120px;
-     border: 1px solid #FF000B;
+
+.border1 {
+    position: absolute;
+    left: 22px;
+    top: 5px;
+    width: 120px;
+    height: 120px;
+    background-color: #FF000B;
     display: none;
- }
-.border2{
+    opacity: 0.3;
+}
+
+.border2 {
     position: absolute;
     left: 1184px;
     top: 915px;
     width: 120px;
     height: 120px;
-    border: 1px solid #FF000B;
     display: none;
+    background-color: #FF000B;
+    opacity:0.3;
 }
 
 
