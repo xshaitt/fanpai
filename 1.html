@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>兄弟连年会----一等奖</title>
+</head>
+<body>
+<link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    a, img {
+        border: 0;
+        text-decoration: none;
+    }
+
+    body {
+        font: 12px/180% Arial;
+        background: #333;
+    }
+
+    .brand a {
+        display: block;
+        float: left;
+        margin: 20px;
+        width: 450px;
+        height: 600px;
+        text-align: center;
+        position: relative;
+    }
+
+    .brand img {
+        width: 450px;
+        height: 600px;
+    }
+
+    .brand .info {
+        background-color: #f0f0f0;
+        color: #369242;
+        line-height: 240px;
+    }
+
+    .vertical .info {
+        height: 600px;
+        margin: 0 auto;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    #vertical .img1 {
+        display: none;
+    }
+
+    .mh{
+        -webkit-filter:blur(20px);
+        /*-webkit-transition:ease-out 5s;*/
+    }
+
+    .centent {
+        width: 28px;
+        margin: 0 auto;
+    }
+</style>
+
+<div style="width:450px;margin:0 auto;">
+
+    <div id="vertical" class="brand vertical">
+        <a class="a1" href="#"><img class="img1" style="display: none;" alt="" src=''/>
+            <div class="info">
+                <img src="images/bj.png">
+            </div>
+        </a>
+    </div>
+
+    <div class="clear"></div>
+</div>
+<div class="centent">
+    <button class="start btn btn-success">抽奖</button>
+</div>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    var names = ["PHP于倩", "于倩", "于晓春", "付名", "候清心", "候黎明", "刘俊蔚", "刘国庆", "刘晓松", "刘红威", "吴梦君", "吴瑞清", "周晓芸", "夏薇", "姚琴", "孙丽萍", "孙德宝", "孙金涛", "宁宇", "宋佳妮", "尹红艳", "左健", "张宁", "张爱华", "张鑫", "张韬", "彭岸明", "徐佳春", "徐承花", "徐晓静", "徐玉玲", "徐静贤", "戴伟", "时昌旭", "李原原", "李媛媛", "李宛红", "李春艳", "李雷", "柳君航", "梁俊", "檀结红", "武迪", "江南", "江宝华", "汪春波", "沈丽红", "沈钰", "牛文平", "牛萃", "王威风", "王常林", "理想", "盛亚兵", "秦静", "程丽", "管长龙", "翟璐璐", "苏畅", "范天烨", "蒯海峰", "蔡政委", "薛通", "袁琼舟", "贾龙飞", "连妍妍", "邢顺华", "邵成", "邹存野", "郑忠意", "郭丹丹", "郭玉萍", "金树雪", "钱沙沙", "钱霄宇", "马政", "马达", "黄亚甜", "黄磊", "黄豪", "黄超", "黄颖亮", "龚丽丽"];
+    var name = '';
+    $('.start').click(function () {
+        //取翻转秒数5-10秒
+        var stime = ran(5, 8) * 1000;
+        var timer1 = null;
+        var timerstop = null;
+        timer1 = setInterval(function () {
+            name = names[ran(0, names.length - 1)];
+            $('.a1 .img1').attr('src', './images/' + name + '.jpg');
+            $('.a1 .img1').stop().animate({'width': 0}, 100, function () {
+                $('.a1 .img1').show().next().hide();
+                $('.a1 .img1').animate({'width': '450px'}, 100);
+            });
+            //翻转第一张牌
+        }, 200);
+        setTimeout(function () {
+            $('.img1').addClass('mh');
+        },stime-1000);
+        //提前1秒加马赛克
+        timerstop = setTimeout(function () {
+            clearInterval(timer1);
+            timer1 = null;
+            return false;
+        }, stime);
+    });
+    function ran(min, max) {
+        return parseInt(Math.random() * (max - min + 1) + min)
+    }
+    $('.img1').click(function () {
+        $(this).css({'-webkit-transition':'ease-out 5s','-webkit-filter':'blur(0)'});
+    });
+</script>
+</body>
+</html>
