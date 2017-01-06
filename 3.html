@@ -50,25 +50,11 @@
         margin: 0 auto;
     }
 
-    .horizontal img {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    .horizontal .info {
-        width: 180px;
-        height: 0;
-        top: 120px;
-        position: absolute;
-        left: 0;
-    }
-
     .clear {
         clear: both;
     }
 
-    #vertical img {
+    #vertical .img1 {
         display: none;
     }
 
@@ -81,14 +67,20 @@
 <div style="width:660px;margin:0 auto;">
 
     <div id="vertical" class="brand vertical">
-        <a class="a1" href="#"><img style="display: none;" alt="" src=''/>
-            <div class="info">三等奖</div>
+        <a class="a1" href="#"><img class="img1" style="display: none;" alt="" src=''/>
+            <div class="info">
+                <img src="images/bj.png">
+            </div>
         </a>
-        <a class="a2" href="#"><img lta="" src=''/>
-            <div class="info">三等奖</div>
+        <a class="a2" href="#"><img class="img1" lta="" src=''/>
+            <div class="info">
+                <img src="images/bj.png">
+            </div>
         </a>
-        <a class="a3" href="#"><img alt="" src=''/>
-            <div class="info">三等奖</div>
+        <a class="a3" href="#"><img class="img1" alt="" src=''/>
+            <div class="info">
+                <img src="images/bj.png">
+            </div>
         </a>
     </div>
 
@@ -96,7 +88,6 @@
 </div>
 <div class="centent">
     <button class="start btn btn-success">抽奖</button>
-    <a class="start btn btn-danger" href="2.html">二等奖</a>
 </div>
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -110,22 +101,22 @@
         var timerstop = null;
         timer1 = setInterval(function () {
             name = names[ran(0, names.length - 1)];
-            $('.a1 img').attr('src', './images/' + name + '.jpg');
-            $('.a1 img').stop().animate({'width': 0}, 100, function () {
+            $('.a1 .img1').attr('src', './images/' + name + '.jpg');
+            $('.a1 .img1').stop().animate({'width': 0}, 100, function () {
                 $('.a1 img').show().next().hide();
                 $('.a1 img').animate({'width': '180px'}, 100);
             });
             //翻转第一张牌
             name = names[ran(0, names.length - 1)];
-            $('.a2 img').attr('src', './images/' + name + '.jpg');
-            $('.a2 img').stop().animate({'width': 0}, 100, function () {
+            $('.a2 .img1').attr('src', './images/' + name + '.jpg');
+            $('.a2 .img1').stop().animate({'width': 0}, 100, function () {
                 $('.a2 img').show().next().hide();
                 $('.a2 img').animate({'width': '180px'}, 100);
             });
             //翻转第二张牌
             name = names[ran(0, names.length - 1)];
-            $('.a3 img').attr('src', './images/' + name + '.jpg');
-            $('.a3 img').stop().animate({'width': 0}, 100, function () {
+            $('.a3 .img1').attr('src', './images/' + name + '.jpg');
+            $('.a3 .img1').stop().animate({'width': 0}, 100, function () {
                 $('.a3 img').show().next().hide();
                 $('.a3 img').animate({'width': '180px'}, 100);
             });
