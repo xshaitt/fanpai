@@ -63,6 +63,9 @@
         margin: 0 auto;
     }
 </style>
+<audio id="bgMp3">
+    <source src="mp3/djr.mp3" type="audio/mp3">
+</audio>
 
 <div style="width:660px;margin:35% auto 0px;">
 
@@ -98,6 +101,7 @@
     });
     var name1 = name2 = name3 = '';
     $('.start').click(function () {
+        document.getElementById("bgMp3").play()
         $(this).hide();
         //取翻转秒数5-10秒
         var stime = ran(5, 8) * 1000;
@@ -133,6 +137,7 @@
             //翻转第三张牌
         }, 200);
         timerstop = setTimeout(function () {
+            document.getElementById("bgMp3").pause()
             clearInterval(timer1);
             sessionStorage.setItem('level',JSON.stringify([name1,name2,name3]));
             //保存已经中奖的人名

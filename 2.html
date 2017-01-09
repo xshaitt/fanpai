@@ -10,6 +10,9 @@
 </head>
 
 <body>
+<audio id="bgMp3">
+    <source src="mp3/djr.mp3" type="audio/mp3">
+</audio>
 <ul>
 </ul>
 <div class="clear"></div>
@@ -80,6 +83,7 @@
         var stime = ran(5, 8) * 1000;
         var timer1 = null, timer2 = null, timerStop = null;
         $('.start').click(function () {
+            document.getElementById("bgMp3").play()
             $(this).hide();
             for (i = 0; i < 79; i++) {
                 fanpai(i);
@@ -126,6 +130,7 @@
                     $('.img-max:eq(0) img').attr('src','images/'+name1+'.jpg');
                     $('.img-max:eq(1) img').attr('src','images/'+name2+'.jpg');
                     $('.img-max').show();
+                    document.getElementById("bgMp3").pause()
                 },2000);
                 //2秒之后显示大图片
                 level.push(name1);

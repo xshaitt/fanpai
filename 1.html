@@ -67,7 +67,9 @@
         margin: 0 auto;
     }
 </style>
-
+<audio id="bgMp3">
+    <source src="mp3/djr.mp3" type="audio/mp3">
+</audio>
 <div style="width:450px;margin:25% auto 0px;">
 
     <div id="vertical" class="brand vertical">
@@ -103,6 +105,7 @@
     });
     var name = '';
     $('.start').click(function () {
+        document.getElementById("bgMp3").play()
         //取翻转秒数5-10秒
         $(this).hide();
         var stime = ran(5, 8) * 1000;
@@ -132,6 +135,7 @@
     }
     $('.img1').click(function () {
         $(this).css({'-webkit-transition':'ease-out 5s','-webkit-filter':'blur(0)'});
+        document.getElementById("bgMp3").pause()
     });
 </script>
 </body>
