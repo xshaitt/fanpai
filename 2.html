@@ -7,252 +7,188 @@
     <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet"/>
     <script type="text/javascript" src="./js/move.js"></script>
-    <script type="text/javascript">
-        window.onload = function () {
-            var aLi = document.getElementsByTagName('li');
-            var zIndex = 1;
-
-            // 测试，与效果无关！
-//            for (var i = 0; i < aLi.length; i++) {
-//                var oSpan = document.createElement('span');
-//                oSpan.innerHTML = i;
-//                aLi[i].appendChild(oSpan);
-//            }
-
-            // 布局转换
-            aPos = [];
-            for (var i = 0; i < aLi.length; i++) {
-                aPos.push({
-                    left: aLi[i].offsetLeft,
-                    top: aLi[i].offsetTop
-                });
-            }
-
-            for (var i = 0; i < aLi.length; i++) {
-                aLi[i].style.position = 'absolute';
-                aLi[i].style.left = aPos[i].left + 'px';
-                aLi[i].style.top = aPos[i].top + 'px';
-                aLi[i].style.margin = 0;
-            }
-
-            // 随机换位置
-            var oBtn = document.getElementById('btn');
-            oBtn.onclick = function () {
-
-                aPos.sort(function () {
-                    return Math.random() - 0.5;
-                });
-                for (var i = 0; i < aLi.length; i++) {
-                    move(aLi[i], aPos[i]);
-                }
-            };
-        };
-    </script>
-
 </head>
 
 <body>
-
-
 <ul>
-    <li><img src="./images/PHP于倩.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/于倩.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/于晓春.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/付名.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/候清心.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/候黎明.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/刘俊蔚.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/刘国庆.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/刘晓松.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/刘红威.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/吴梦君.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/吴瑞清.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/周晓芸.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/夏薇.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/姚琴.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/孙丽萍.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/孙德宝.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/孙金涛.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/宁宇.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/宋佳妮.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/尹红艳.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/左健.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/张宁.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/张爱华.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/张鑫.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/张韬.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/彭岸明.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/徐佳春.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/徐承花.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/徐晓静.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/徐玉玲.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/徐静贤.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/戴伟.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/时昌旭.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/李原原.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/李媛媛.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/李宛红.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/李春艳.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/李雷.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/柳君航.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/梁俊.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/檀结红.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/武迪.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/江南.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/江宝华.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/汪春波.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/沈丽红.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/沈钰.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/牛文平.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/牛萃.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/王威风.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/王常林.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/理想.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/盛亚兵.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/秦静.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/程丽.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/管长龙.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/翟璐璐.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/苏畅.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/范天烨.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/蒯海峰.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/蔡政委.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/薛通.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/袁琼舟.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/贾龙飞.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/连妍妍.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/邢顺华.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/邵成.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/邹存野.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/郑忠意.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/郭丹丹.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/郭玉萍.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/金树雪.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/钱沙沙.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/钱霄宇.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/马政.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/马达.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/黄亚甜.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/黄磊.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-    <li><img src="./images/黄豪.jpg"/><img class="bj" src="./images/bj2.png"/></li>
-
 </ul>
 <div class="clear"></div>
 <div class="border1"></div>
 <div class="border2"></div>
 <div class="centent">
-    <button class="btn btn-success fanpai">翻牌</button>
-    <button class="btn btn-success" id="btn">洗牌</button>
-    <button class="btn btn-success start">抽奖</button>
-    <a class="start btn btn-danger" href="1.html">一等奖</a>
+    <button class="btn btn-success start" style="margin: 0px auto;display: block;">抽奖</button>
 </div>
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>
-    i = 0;
-    var timer = null;
-    var stime = ran(5, 8) * 1000;
-    var timer1 = null, timer2 = null, timerStop = null;
-    $('.fanpai').click(function () {
-        for (i = 0; i < 80; i++) {
-            fanpai(i);
+    var names = ["PHP于倩", "于倩", "于晓春", "付名", "候清心", "候黎明", "刘俊蔚", "刘国庆", "刘晓松", "刘红威", "吴梦君", "吴瑞清", "周晓芸", "夏薇", "姚琴", "孙丽萍", "孙德宝", "孙金涛", "宁宇", "宋佳妮", "尹红艳", "左健", "张宁", "张爱华", "张鑫", "张韬", "彭岸明", "徐佳春", "徐承花", "徐晓静", "徐玉玲", "徐静贤", "戴伟", "时昌旭", "李原原", "李媛媛", "李宛红", "李春艳", "李雷", "柳君航", "梁俊", "檀结红", "武迪", "江南", "江宝华", "汪春波", "沈丽红", "沈钰", "牛文平", "牛萃", "王威风", "王常林", "理想", "盛亚兵", "秦静", "程丽", "管长龙", "翟璐璐", "苏畅", "范天烨", "蒯海峰", "蔡政委", "薛通", "袁琼舟", "贾龙飞", "连妍妍", "邢顺华", "邵成", "邹存野", "郑忠意", "郭丹丹", "郭玉萍", "金树雪", "钱沙沙", "钱霄宇", "马政", "马达", "黄亚甜", "黄磊", "黄豪", "黄超", "黄颖亮", "龚丽丽"];
+    var level3 = JSON.parse(sessionStorage.getItem('level3'));
+    var topMin = leftMin = topMax = leftMax = 0;
+    for (var i = 0; i < names.length; i++) {
+        if (names[i] == level3[0] || names[i] == level3[1] || names[i] == level3[2]) {
+            names.splice(i, 1);
         }
+    }
+
+    names.sort(function () {
+        return 0.5 - Math.random();
     });
-    $('.start').click(function () {
-        var liObj = $('ul li:eq(' + ran(0, 79) + ')');
-        $('.border1').css({'display': 'block', 'top': liObj.css('top'), 'left': liObj.css('left')});
-        liObj = $('ul li:eq(' + ran(0, 79) + ')');
-        $('.border2').css({'display': 'block', 'top': liObj.css('top'), 'left': liObj.css('left')});
-        timer1 = setInterval(function () {
-            topLeft = moveValue($('.border1'), ran(0, 3));
-            moveNext($('.border1'), topLeft.top, topLeft.left);
-        }, 100);
-        timer2 = setInterval(function () {
-            topLeft = moveValue($('.border2'), ran(0, 3));
-            moveNext($('.border2'), topLeft.top, topLeft.left);
-        }, 100);
-        setTimeout(function () {
-            clearInterval(timer1);
-            timer1 = null;
-            clearInterval(timer2);
-            timer2 = null;
-            for (i = 0; i < 80; i++) {
-                fanpai(i);
-            }
-            return false;
-        }, stime);
-    });
-    /**
-     * 翻开指定位置的头像
-     * @param index
-     */
-    function fanpai(index) {
-        if($('ul li:eq('+index+') img').eq(0).css('display') == 'none'){
-            $('li:eq(' + index + ') img').eq(1).stop().animate({'width': 0}, 1000, function () {
-                $('li:eq(' + index + ') img').eq(1).hide().prev().show();
-                $('li:eq(' + index + ') img').eq(0).animate({'width': '120px'}, 1000);
-            });
-        }
-        else{
-            $('li:eq(' + index + ') img').eq(0).stop().animate({'width': 0}, 1000, function () {
-                $('li:eq(' + index + ') img').eq(0).hide().next().show();
-                $('li:eq(' + index + ') img').eq(1).animate({'width': '120px'}, 1000);
+    for (var i = 0; i < 80; i++) {
+        $('ul').append('<li><img src="./images/' + names[i] + '.jpg"/><img class="bj" src="./images/bj.png"/></li>');
+    }
+    window.onload = function () {
+        var aLi = document.getElementsByTagName('li');
+        var zIndex = 1;
+
+        // 布局转换
+        aPos = [];
+        for (var i = 0; i < aLi.length; i++) {
+            aPos.push({
+                left: aLi[i].offsetLeft,
+                top: aLi[i].offsetTop
             });
         }
 
-    }
-    /**
-     * 移动指定节点到指定位置
-     * @param obj
-     * @param top
-     * @param left
-     */
-    function moveNext(obj, top, left) {
-        $(obj).css({'top': top});
-        $(obj).css({'left': left});
-    }
-    /**
-     * 计算指定节点下一个位置的坐标,并返回计算出的坐标
-     * @param obj
-     * @param direction
-     * @returns {{top: Number, left: Number}}
-     */
-    function moveValue(obj, direction) {
-        var top = parseInt($(obj).css('top')), left = parseInt($(obj).css('left'));
-        switch (direction) {
-            case 0:
-                if (top <= 5) {
-                    top = 915;
-                } else {
-                    top -= 130;
-                }
-                break;
-            case 1:
-                if (top >= 915) {
-                    top = 5;
-                } else {
-                    top += 130;
-                }
-                break;
-            case 2:
-                if (left <= 22) {
-                    left = 1192;
-                } else {
-                    left -= 130;
-                }
-                break;
-            default:
-                if (left >= 1192) {
-                    left = 22;
-                } else {
-                    left += 130;
-                }
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].style.position = 'absolute';
+            aLi[i].style.left = aPos[i].left + 'px';
+            aLi[i].style.top = aPos[i].top + 'px';
+            aLi[i].style.margin = 0;
         }
-        return {'top': top, 'left': left};
-    }
-    function ran(min, max) {
-        return parseInt(Math.random() * (max - min + 1) + min)
-    }
+
+
+        i = 0;
+        var timer = null;
+        var stime = ran(5, 8) * 1000;
+        var timer1 = null, timer2 = null, timerStop = null;
+        $('.start').click(function () {
+            topMin = parseInt($('ul li:eq(0)').css('top'));
+            leftMin = parseInt($('ul li:eq(0)').css('left'));
+            topMax = parseInt($('ul li').eq(names.length - 1).css('top'));
+            leftMax = parseInt($('ul li').eq(names.length - 1).css('left'));
+            $(this).hide();
+            for (i = 0; i < 80; i++) {
+                fanpai(i);
+            }
+            //立即翻牌
+            setTimeout(function () {
+                shuffle(3);
+            }, 2000);
+            //3秒后洗牌
+            setTimeout(function () {
+                var liObj = $('ul li:eq(' + ran(0, 79) + ')');
+                $('.border1').css({'display': 'block', 'top': liObj.css('top'), 'left': liObj.css('left')});
+                liObj = $('ul li:eq(' + ran(0, 79) + ')');
+                $('.border2').css({'display': 'block', 'top': liObj.css('top'), 'left': liObj.css('left')});
+                timer1 = setInterval(function () {
+                    topLeft = moveValue($('.border1'), ran(0, 3));
+                    moveNext($('.border1'), topLeft.top, topLeft.left);
+                }, 100);
+                timer2 = setInterval(function () {
+                    topLeft = moveValue($('.border2'), ran(0, 3));
+                    moveNext($('.border2'), topLeft.top, topLeft.left);
+                }, 100);
+            }, 5000);
+            //5秒后开始抽奖
+            setTimeout(function () {
+                clearInterval(timer1);
+                timer1 = null;
+                clearInterval(timer2);
+                timer2 = null;
+                for (i = 0; i < 80; i++) {
+                    fanpai(i);
+                }
+                return false;
+            }, stime + 5000);
+        });
+        /**
+         * 翻开指定位置的头像
+         * @param index
+         */
+        function fanpai(index) {
+            if ($('ul li:eq(' + index + ') img').eq(0).css('display') == 'none') {
+                $('li:eq(' + index + ') img').eq(1).stop().animate({'width': 0}, 1000, function () {
+                    $('li:eq(' + index + ') img').eq(1).hide().prev().show();
+                    $('li:eq(' + index + ') img').eq(0).animate({'width': '110px'}, 1000);
+                });
+            }
+            else {
+                $('li:eq(' + index + ') img').eq(0).stop().animate({'width': 0}, 1000, function () {
+                    $('li:eq(' + index + ') img').eq(0).hide().next().show();
+                    $('li:eq(' + index + ') img').eq(1).animate({'width': '110px'}, 1000);
+                });
+            }
+
+        }
+
+        /**
+         * 移动指定节点到指定位置
+         * @param obj
+         * @param top
+         * @param left
+         */
+        function moveNext(obj, top, left) {
+            $(obj).css({'top': top});
+            $(obj).css({'left': left});
+        }
+
+        /**
+         * 计算指定节点下一个位置的坐标,并返回计算出的坐标
+         * @param obj
+         * @param direction
+         * @returns {{top: Number, left: Number}}
+         */
+        function moveValue(obj, direction) {
+            var top = parseInt($(obj).css('top')), left = parseInt($(obj).css('left'));
+            switch (direction) {
+                case 0:
+                    if (top <= topMin) {
+                        top = topMax;
+                    } else {
+                        top -= 120;
+                    }
+                    break;
+                case 1:
+                    if (top >= topMax) {
+                        top = topMin;
+                    } else {
+                        top += 120;
+                    }
+                    break;
+                case 2:
+                    if (left <= leftMin) {
+                        left = leftMax;
+                    } else {
+                        left -= 120;
+                    }
+                    break;
+                default:
+                    if (left >= leftMax) {
+                        left = leftMin;
+                    } else {
+                        left += 120;
+                    }
+            }
+            return {'top': top, 'left': left};
+        }
+
+        function ran(min, max) {
+            return parseInt(Math.random() * (max - min + 1) + min)
+        }
+
+        function shuffle(num) {
+            for (var i = 0; i < num; i++) {
+                setTimeout(function () {
+                    aPos.sort(function () {
+                        return Math.random() - 0.5;
+                    });
+                    for (var i = 0; i < aLi.length; i++) {
+                        move(aLi[i], aPos[i]);
+                    }
+                }, i * 1000);
+            }
+        }
+    };
 </script>
 </body>
 </html>
