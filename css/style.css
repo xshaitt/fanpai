@@ -74,7 +74,7 @@ ul li img {
 
 .border1 {
     position: absolute;
-    left: 22px;
+    left: 5px;
     top: 5px;
     width: 110px;
     height: 110px;
@@ -93,5 +93,10 @@ ul li img {
     background-color: #FF000B;
     opacity:0.3;
 }
-
-
+.img-max{
+    width:440px;
+    height:440px;
+    position: absolute;
+    top:150px;
+    display: none;
+}

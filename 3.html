@@ -69,17 +69,17 @@
     <div id="vertical" class="brand vertical">
         <a class="a1" href="#"><img class="img1" style="display: none;" alt="" src=''/>
             <div class="info">
-                <img src="images/bj.png">
+                <img src="images/bj.jpg">
             </div>
         </a>
         <a class="a2" href="#"><img class="img1" lta="" src=''/>
             <div class="info">
-                <img src="images/bj.png">
+                <img src="images/bj.jpg">
             </div>
         </a>
         <a class="a3" href="#"><img class="img1" alt="" src=''/>
             <div class="info">
-                <img src="images/bj.png">
+                <img src="images/bj.jpg">
             </div>
         </a>
     </div>
@@ -92,7 +92,7 @@
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    var names = ["PHP于倩", "于倩", "于晓春", "付名", "候清心", "候黎明", "刘俊蔚", "刘国庆", "刘晓松", "刘红威", "吴梦君", "吴瑞清", "周晓芸", "夏薇", "姚琴", "孙丽萍", "孙德宝", "孙金涛", "宁宇", "宋佳妮", "尹红艳", "左健", "张宁", "张爱华", "张鑫", "张韬", "彭岸明", "徐佳春", "徐承花", "徐晓静", "徐玉玲", "徐静贤", "戴伟", "时昌旭", "李原原", "李媛媛", "李宛红", "李春艳", "李雷", "柳君航", "梁俊", "檀结红", "武迪", "江南", "江宝华", "汪春波", "沈丽红", "沈钰", "牛文平", "牛萃", "王威风", "王常林", "理想", "盛亚兵", "秦静", "程丽", "管长龙", "翟璐璐", "苏畅", "范天烨", "蒯海峰", "蔡政委", "薛通", "袁琼舟", "贾龙飞", "连妍妍", "邢顺华", "邵成", "邹存野", "郑忠意", "郭丹丹", "郭玉萍", "金树雪", "钱沙沙", "钱霄宇", "马政", "马达", "黄亚甜", "黄磊", "黄豪", "黄超", "黄颖亮", "龚丽丽"];
+    var names = ["于晓春","管长龙","黄磊","苏畅","马达","盛亚兵","黄超","张韬","php于倩","邢顺华","钱沙沙","钱霄宇","汪春波","徐玉玲","贾龙飞","孙德宝","叶瑞","ui于倩","李宛鸿","刘红威","江南","吴瑞清","徐承花","李春艳","金树雪","牛萃","牛文平","黄亚甜","沈丽红","程健","尹红艳","檀结红","徐晓静","张爱华","郭丹丹","郭玉萍","夏蔚","龚丽丽","宋佳妮","徐静贤","孙丽萍","李媛媛","梁俊","武迪","侯清心","薛通","时昌旭","张宁","邹存野","郑忠意","宁宇","秦静","邵成","黄颖亮","王威风","李想","李原原","彭岸明","范天烨","孙金涛","马政","徐佳春","蔡政委","刘俊蔚","周晓芸","付铭","柳军航","黄豪","戴伟","王常林","李雷","袁琼舟","刘晓松","沈钰","江宝华","张鑫","连妍妍","候黎明","左健","吴梦君","翟璐璐","蒯海峰"];
     names.sort(function () {
         return 0.5 - Math.random();
     });
@@ -134,7 +134,7 @@
         }, 200);
         timerstop = setTimeout(function () {
             clearInterval(timer1);
-            sessionStorage.setItem('level3',JSON.stringify([name1,name2,name3]));
+            sessionStorage.setItem('level',JSON.stringify([name1,name2,name3]));
             //保存已经中奖的人名
             timer1 = null;
             return false;

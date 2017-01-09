@@ -15,28 +15,46 @@
 <div class="clear"></div>
 <div class="border1"></div>
 <div class="border2"></div>
+<div class="img-max" style="left: 200px;">
+    <img src="images/bj.jpg" style="width: 440px;height: 440px;">
+</div>
+<div class="img-max" style="left: 700px;">
+    <img src="images/bj.jpg" style="width: 440px;height: 440px;">
+</div>
 <div class="centent">
     <button class="btn btn-success start" style="margin: 0px auto;display: block;">抽奖</button>
 </div>
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>
-    var names = ["PHP于倩", "于倩", "于晓春"];
-    var level3 = JSON.parse(sessionStorage.getItem('level3'));
-    var topMin = leftMin = topMax = leftMax = 0;
+    var names = ["于晓春","管长龙","黄磊","苏畅","马达","盛亚兵","黄超","张韬","php于倩","邢顺华","钱沙沙","钱霄宇","汪春波","徐玉玲","贾龙飞","孙德宝","叶瑞","ui于倩","李宛鸿","刘红威","江南","吴瑞清","徐承花","李春艳","金树雪","牛萃","牛文平","黄亚甜","沈丽红","程健","尹红艳","檀结红","徐晓静","张爱华","郭丹丹","郭玉萍","夏蔚","龚丽丽","宋佳妮","徐静贤","孙丽萍","李媛媛","梁俊","武迪","侯清心","薛通","时昌旭","张宁","邹存野","郑忠意","宁宇","秦静","邵成","黄颖亮","王威风","李想","李原原","彭岸明","范天烨","孙金涛","马政","徐佳春","蔡政委","刘俊蔚","周晓芸","付铭","柳军航","黄豪","戴伟","王常林","李雷","袁琼舟","刘晓松","沈钰","江宝华","张鑫","连妍妍","候黎明","左健","吴梦君","翟璐璐","蒯海峰"];
+    var level = JSON.parse(sessionStorage.getItem('level'));
     for (var i = 0; i < names.length; i++) {
-        if (names[i] == level3[0] || names[i] == level3[1] || names[i] == level3[2]) {
-            names.splice(i, 1);
+        for(var j=0;j<level.length;j++)
+        {
+            if(level[j] == names[i])
+            {
+                names.splice(i, 1);
+            }
         }
     }
-
+    //过滤掉已经中奖的人
+    var topMin = leftMin = topMax = leftMax = 0;
+    setTimeout(function () {
+        topMin = parseInt($('ul li:eq(0)').css('top'));
+        leftMin = parseInt($('ul li:eq(0)').css('left'));
+        topMax = parseInt($('ul li').eq(names.length - 1).css('top'));
+        leftMax = parseInt($('ul li').eq(names.length - 1).css('left'))+120;
+        //加120是因为最后一个是空的,所以真实最大的top与left要小了一个位置
+    },2500);
+    //需要等待创建元素完毕再加载
     names.sort(function () {
         return 0.5 - Math.random();
     });
-    for (var i = 0; i < 80; i++) {
-        $('ul').append('<li><img src="./images/' + names[i] + '.jpg"/><img class="bj" src="./images/bj.png"/></li>');
+    console.log(names.length);
+    for (var i = 0; i < 79; i++) {
+        $('ul').append('<li><img name="'+names[i]+'" src="./images/' + names[i] + '.jpg"/><img class="bj" src="./images/bj.jpg"/></li>');
     }
-    window.onload = function () {
         var aLi = document.getElementsByTagName('li');
         var zIndex = 1;
 
@@ -62,12 +80,8 @@
         var stime = ran(5, 8) * 1000;
         var timer1 = null, timer2 = null, timerStop = null;
         $('.start').click(function () {
-            topMin = parseInt($('ul li:eq(0)').css('top'));
-            leftMin = parseInt($('ul li:eq(0)').css('left'));
-            topMax = parseInt($('ul li').eq(names.length - 1).css('top'));
-            leftMax = parseInt($('ul li').eq(names.length - 1).css('left'));
             $(this).hide();
-            for (i = 0; i < 80; i++) {
+            for (i = 0; i < 79; i++) {
                 fanpai(i);
             }
             //立即翻牌
@@ -102,7 +116,23 @@
                 timer1 = null;
                 clearInterval(timer2);
                 timer2 = null;
-                for (i = 0; i < 80; i++) {
+                var top = parseInt($('.border1').css('top'));
+                var left = parseInt($('.border1').css('left'));
+                var name1 = $('ul li[style="position: absolute; left: '+left+'px; top: '+top+'px; margin: 0px;"] > img:first').attr('name')
+                top = parseInt($('.border2').css('top'));
+                left = parseInt($('.border2').css('left'));
+                var name2 = $('ul li[style="position: absolute; left: '+left+'px; top: '+top+'px; margin: 0px;"] > img:first').attr('name')
+                setTimeout(function () {
+                    $('.img-max:eq(0) img').attr('src','images/'+name1+'.jpg');
+                    $('.img-max:eq(1) img').attr('src','images/'+name2+'.jpg');
+                    $('.img-max').show();
+                },2000);
+                //2秒之后显示大图片
+                level.push(name1);
+                level.push(name2);
+                sessionStorage.setItem('level',JSON.stringify(level));
+                //保存中奖的人
+                for (i = 0; i < 79; i++) {
                     fanpai(i);
                 }
                 return false;
@@ -154,6 +184,11 @@
                     } else {
                         top -= 120;
                     }
+                    if(top == topMax && left == leftMax)
+                    {
+                        top -= 120;
+                    }
+                    //如果移动到最大的空白位置,那么则再移一次
                     break;
                 case 1:
                     if (top >= topMax) {
@@ -161,11 +196,19 @@
                     } else {
                         top += 120;
                     }
+                    if(top == topMax && left == leftMax)
+                    {
+                        top = topMin;
+                    }
                     break;
                 case 2:
                     if (left <= leftMin) {
                         left = leftMax;
                     } else {
+                        left -= 120;
+                    }
+                    if(top == topMax && left == leftMax)
+                    {
                         left -= 120;
                     }
                     break;
@@ -175,7 +218,12 @@
                     } else {
                         left += 120;
                     }
+                    if(top == topMax && left == leftMax)
+                    {
+                        left = leftMin;
+                    }
             }
+            //如果目标是角落的空位置则再次移动一次
             return {'top': top, 'left': left};
         }
 
@@ -195,7 +243,6 @@
                 }, i * 1000);
             }
         }
-    };
 </script>
 </body>
 </html>
