@@ -21,7 +21,7 @@
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>
-    var names = ["PHP于倩", "于倩", "于晓春", "付名", "候清心", "候黎明", "刘俊蔚", "刘国庆", "刘晓松", "刘红威", "吴梦君", "吴瑞清", "周晓芸", "夏薇", "姚琴", "孙丽萍", "孙德宝", "孙金涛", "宁宇", "宋佳妮", "尹红艳", "左健", "张宁", "张爱华", "张鑫", "张韬", "彭岸明", "徐佳春", "徐承花", "徐晓静", "徐玉玲", "徐静贤", "戴伟", "时昌旭", "李原原", "李媛媛", "李宛红", "李春艳", "李雷", "柳君航", "梁俊", "檀结红", "武迪", "江南", "江宝华", "汪春波", "沈丽红", "沈钰", "牛文平", "牛萃", "王威风", "王常林", "理想", "盛亚兵", "秦静", "程丽", "管长龙", "翟璐璐", "苏畅", "范天烨", "蒯海峰", "蔡政委", "薛通", "袁琼舟", "贾龙飞", "连妍妍", "邢顺华", "邵成", "邹存野", "郑忠意", "郭丹丹", "郭玉萍", "金树雪", "钱沙沙", "钱霄宇", "马政", "马达", "黄亚甜", "黄磊", "黄豪", "黄超", "黄颖亮", "龚丽丽"];
+    var names = ["PHP于倩", "于倩", "于晓春"];
     var level3 = JSON.parse(sessionStorage.getItem('level3'));
     var topMin = leftMin = topMax = leftMax = 0;
     for (var i = 0; i < names.length; i++) {
@@ -86,6 +86,13 @@
                 }, 100);
                 timer2 = setInterval(function () {
                     topLeft = moveValue($('.border2'), ran(0, 3));
+                    var top2 = parseInt($('.border1').css('top'));
+                    var left2 = parseInt($('.border1').css('left'));
+                    if(topLeft.top == top2 && topLeft.left == left2)
+                    {
+                        topLeft = moveValue($('.border2'), ran(0, 3));
+                    }
+                    //如果第二个移动到第一个的位置的话,那么再移动一次,确保每次的结果都不相同
                     moveNext($('.border2'), topLeft.top, topLeft.left);
                 }, 100);
             }, 5000);
